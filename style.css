@@ -1,5 +1,3 @@
-/* Reset styles */
-*,
 *::before,
 *::after {
   margin: 0;
@@ -10,45 +8,26 @@
 html, body {
   width: 100%;
   height: 100%;
+  overflow: hidden;
   font-family: 'Arial', sans-serif;
 }
 
-/* Center content vertically */
+/* Main container */
 main {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  min-height: 100vh;
-  background-color: #f8f9fa;
-}
-
-/* Title and subtitle styles */
-.title {
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  font-size: 16px;
-  text-align: center;
-  color: #555;
-  margin-bottom: 20px;
-}
-
-/* Slider container */
-.slider-container {
-  position: relative;
-  width: 80%; /* Adjust the width as needed */
-  max-width: 900px; /* Set a maximum width */
-  height: 500px;
-  border-radius: 8px;
-  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
   background-color: #000;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Image container */
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .image-container {
@@ -67,9 +46,9 @@ main {
   object-fit: cover;
 }
 
-/* Initially hide part of the "after" image */
+/* Hide the after image partially */
 .image-after {
-  clip-path: inset(0 50% 0 0);
+  clip-path: inset(0 50% 0 0); /* Start with 50% visible */
   z-index: 2;
 }
 
@@ -77,7 +56,7 @@ main {
   z-index: 1;
 }
 
-/* Slider styles */
+/* Slider */
 .slider {
   position: absolute;
   top: 0;
@@ -85,21 +64,23 @@ main {
   width: 100%;
   height: 100%;
   cursor: pointer;
-  opacity: 0; /* Hide the input element */
-  z-index: 4;
+  opacity: 0;
+  z-index: 3;
 }
 
+/* Slider line */
 .slider-line {
   position: absolute;
   top: 0;
-  left: 50%;
-  width: 2px;
+  left: 50%; /* Center the slider line */
+  width: 3px;
   height: 100%;
   background-color: white;
-  z-index: 5;
+  z-index: 4;
   transform: translateX(-50%);
 }
 
+/* Slider button */
 .slider-button {
   position: absolute;
   top: 50%;
@@ -108,12 +89,19 @@ main {
   height: 30px;
   background-color: white;
   border-radius: 50%;
-  z-index: 6;
+  z-index: 5;
   transform: translate(-50%, -50%);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-  cursor: grab;
 }
 
-.slider-button:active {
-  cursor: grabbing;
+/* Responsiveness */
+@media (max-width: 768px) {
+  .slider-button {
+    width: 20px;
+    height: 20px;
+  }
+
+  .slider-line {
+    width: 2px;
+  }
 }
