@@ -4,29 +4,36 @@ body, html {
   padding: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  align-items: flex-start;
   background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
 }
 
 main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
-  height: 100%;
+  padding: 20px 0;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Ruimte tussen de frames */
+  align-items: center; /* Centreer de frames horizontaal */
+}
+
+/* Frame Container */
 .frame {
   position: relative;
-  width: 100%;
-  max-width: 80vw; /* Beperkt de breedte tot 80% van de viewport */
+  width: 90%; /* Brede container */
+  max-width: 800px; /* Limiteer de breedte */
   aspect-ratio: 16 / 9; /* Houd de verhouding 16:9 */
   background: #fff;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }
 
+/* Content binnen de frame */
 .container {
   position: absolute;
   top: 0;
